@@ -3,7 +3,7 @@ from .views import tarefa_views
 from .views import usuario_views
 
 urlpatterns = [
-    path('listar/', tarefa_views.listar_tarefas, name='listar_tarefas'),
+    path('', tarefa_views.listar_tarefas, name='listar_tarefas'),
     path('cadastrar/', tarefa_views.cadastrar_tarefa, name='cadastrar_tarefas'),
     path('editar/<int:id>', tarefa_views.editar_tarefa, name='editar_tarefa'),
     path('remover/<int:id>', tarefa_views.remover_tarefa, name='remover_tarefa'),
