@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load meus_filtros %}
+{% block title %}
+Cadastrar Tarefa
+{% endblock title %}
+
+{% block cardtitle %}
+Cadastro de Tarefas
+{% endblock cardtitle %}
+
+
+    {% block card_body %}
+    <form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="titulo">Título: </label>
+        {{ form_tarefa.titulo | addclass:'form-control' }}
+        {{ form_tarefa.titulo.errors }}
+    </div>
+        <div class="form-group">
+        <label for="descricao">Descrição: </label>
+        {{ form_tarefa.descricao | addclass:'form-control' }}
+            {{ form_tarefa.descricao.errors }}
+    </div>
+        <div class="form-group">
+        <label for="data_expiracao">Data de Expiração: </label>
+        {{ form_tarefa.data_expiracao | addclass:'form-control' }}
+            {{ form_tarefa.data_expiracao.errors }}
+    </div>
+        <div class="form-group">
+        <label for="prioridade">Prioridade: </label>
+        {{ form_tarefa.prioridade | addclass:'form-control' }}
+            {{ form_tarefa.prioridade.errors }}
+        </div>
+
+    {% endblock card_body %}
+    {% block card_footer %}
+<div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Salvar"></input>
+        </div>
+    {% endblock card_footer %}
+</form>
+
+

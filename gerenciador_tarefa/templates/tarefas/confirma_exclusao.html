@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load meus_filtros %}
+{% block title %}
+Remover Tarefa
+{% endblock title %}
+
+{% block cardtitle %}
+Confirma a exclusão da Tarefa?
+{% endblock cardtitle %}
+{% block card_body %}
+<div class="card mb-12">
+    <div class="card-header">
+        {{ tarefa.get_prioridade_display }}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">
+            {{ tarefa.titulo }}
+        </h5>
+        <p class="card-text">
+            {{ tarefa.descricao }}
+        </p>
+        <p class="card-text">
+            Data Limite: {{ tarefa.data_expiracao }}
+        </p>
+    </div>
+    <div class="card-footer">
+        <form method="POST">
+        {% csrf_token %}
+            <button class="btn btn-danger" type="submit">Remover</button>
+        </form>
+    </div>
+{% endblock card_body %}

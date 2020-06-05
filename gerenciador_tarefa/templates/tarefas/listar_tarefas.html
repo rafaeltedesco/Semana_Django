@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+Listagem de tarefa
+{% endblock title %}
+{% block cardtitle %}
+Listagem de Tarefas
+{% endblock cardtitle %}
+{% block card_body %}
+{% for tarefa in tarefas %}
+<div class="card mb-3">
+    <div class="card-header">
+        {{ tarefa.get_prioridade_display }}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">
+            {{ tarefa.titulo }}
+        </h5>
+        <p class="card-text">
+            {{ tarefa.descricao }}
+            Data Limite: {{ tarefa.data_expiracao }}
+        </p>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-secondary" href="{% url 'editar_tarefa' tarefa.id %}">Editar</a>
+        <a class="btn btn-danger" href="{% url 'remover_tarefa' tarefa.id %}">Remover</a>
+    </div>
+</div>
+{% endfor %}
+{% endblock card_body %}
+{% block card_footer %}
+    <a href="{% url 'cadastrar_tarefas' %}" class="btn btn-primary float-right">Nova Tarefa</a>
+{% endblock card_footer %}
+
